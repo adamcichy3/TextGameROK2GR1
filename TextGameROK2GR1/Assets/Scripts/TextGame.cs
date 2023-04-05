@@ -19,33 +19,31 @@ public class TextGame : MonoBehaviour
     int max = 1000;
     int shoot = 500;
 
+
+
     void Start()
     {
         // typ nazwe i ew. podac poczatkowa wartosc
-       
-
-        Debug.Log("Witam w grze - pomysl w glowie liczbe od 1 do 1000");
+        Debug.Log("Witam w grze - pomysl w glowie liczbe od "+min+ " do " + max);
+        max = 1001;
         Debug.Log("Czy twoja liczba jest rowna/wieksza/mniejsza od 500?");
         // print string
         // Nacisnij gorna strzalke aby odpowiedziec ze wieksza
-       
     }
 
-   
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             min = shoot;
-            shoot = (min + max) / 2; // 250
-            Debug.Log("Czy twoja liczba jest rowna/wieksza/mniejsza od "+shoot + " ?");
+            NextShoot();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             max = shoot;
-            shoot = (min + max) / 2;
-            Debug.Log("Czy twoja liczba jest rowna/wieksza/mniejsza od " + shoot + " ?");
+            NextShoot();
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
@@ -53,4 +51,12 @@ public class TextGame : MonoBehaviour
             Debug.Log("KOMPUTER ZGADL LICZBE");
         }
     }
+
+    void NextShoot()
+    {
+        shoot = (min + max) / 2;
+        Debug.Log("Czy twoja liczba jest rowna/wieksza/mniejsza od " + shoot + " ?");
+    }
+
+
 }
